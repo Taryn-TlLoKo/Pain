@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>像素歌词</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{
+            background: #0a0a0e;
+            /* 斜向错位大波点，韩系错落感 */
+            background-image: 
+                radial-gradient(rgba(255,255,255,0.12) 7px, transparent 7px),
+                radial-gradient(rgba(255,255,255,0.12) 7px, transparent 7px);
+            background-size: 50px 50px;
+            background-position: 0 0, 25px 25px;
+            min-height: 100vh;
+            padding: 60px 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        /* 四角像素翅膀 */
+        .wing{
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            color: rgba(204, 204, 255, 0.4);
+            font-family: monospace;
+            font-size: 40px;
+            animation: blink 2.5s ease-in-out infinite;
+            user-select: none;
+            image-rendering: pixelated;
+            z-index: 1;
+        }
+        .wing-top-left{top:30px;left:30px;transform: scaleX(-1);}
+        .wing-top-right{top:30px;right:30px;}
+        .wing-bottom-left{bottom:30px;left:30px;transform: scaleX(-1) rotate(180deg);}
+        .wing-bottom-right{bottom:30px;right:30px;transform: rotate(180deg);}
+
+        /* 翅膀闪烁 */
+        @keyframes blink {
+            0% {opacity:0.2;}
+            50% {opacity:0.8;}
+            100% {opacity:0.2;}
+        }
+
+        /* 歌词区域居中 */
+        .content{
+            max-width: 650px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* 文字浮动动画，幅度缩小至3px，轻微晃动 */
+        @keyframes floatText {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-3px); }
+            100% { transform: translateY(0px); }
+        }
+
+        h1{
+            font-family: "Courier New", SimHei, monospace;
+            font-size: 26px;
+            text-align: left;
+            color: #ffffff;
+            letter-spacing: 3px;
+            margin: 0 0 35px 0;
+            text-shadow: 0 0 12px #ffffff, 0 0 22px rgba(179, 102, 255, 0.6);
+            image-rendering: pixelated;
+            font-style: italic; /* 标题斜体 */
+        }
+
+        .lyric{
+            font-family: "Courier New", SimHei, monospace;
+            font-size: 17px;
+            color: #ddddee;
+            line-height: 2.4;
+            white-space: pre-wrap;
+            text-shadow: 0 0 8px #ffffff, 0 0 16px rgba(153, 102, 221, 0.7);
+            image-rendering: pixelated;
+            animation: floatText 2s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- 四角像素翅膀 -->
+    <div class="wing wing-top-left">◈</div>
+    <div class="wing wing-top-right">◈</div>
+    <div class="wing wing-bottom-left">◈</div>
+    <div class="wing wing-bottom-right">◈</div>
+
+    <div class="content">
+        <!-- 直接h1，移除边框容器 -->
+        <h1>生长痛</h1>
+        <div class="lyric">
+致此作品以我们勇敢的18岁
+To Baihi
+
+窗外蔓延斑驳树影
+风声窜入晃荡风铃
+青苔爬上我的脚印
+挥之不去的身影
+是谁 站在 高处 指引
+替我 写下 人生 的heading
+
+让我们 放下一切
+只感受生命的灿烂
+即使是 短暂的 梦幻
+也好过被教条腐烂
+
+我想 做规则的法外狂徒
+追缉自由的心电图
+闯出阴霾的迷雾
+你说
+Why are we still running, me and you?
+是太过愚蠢还是执迷不悟
+可我偏要 做规则的法外狂徒
+即使遍体鳞伤
+也好过窒息于泥土
+
+我与不可磨灭的少年心气
+纵身一跃去拥抱自由的引力
+哪怕坠落也是属于我的轨迹
+哪怕无法回头 无法后悔 无法再定义
+
+让我们 放下一切
+只感受生命的灿烂
+即使是 短暂的 梦幻
+也好过被教条腐烂
+
+我想 做规则的法外狂徒
+追缉自由的心电图
+闯出阴霾的迷雾
+你说
+Why are we still running, me and you?
+是太过愚蠢还是执迷不悟
+可我偏要 做规则的法外狂徒
+即使遍体鳞伤
+也好过窒息于泥土
+
+过去 未来 现在 我不再理睬
+是你 是我 我们 永远不离开
+雨海 晴川 萱草 在天外澎湃
+这抽丝剥茧的生长痛
+也只是皮肤下的脉络
+潮水退去
+我还站着
+        </div>
+    </div>
+</body>
+</html>
